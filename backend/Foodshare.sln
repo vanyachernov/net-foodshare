@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EC65CB24-AF67-4CD9-A2BC-8526A3A1B53F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodshare.API", "src\Foodshare.API\Foodshare.API.csproj", "{1CB2873F-A880-4538-B771-E38524B3292C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodshare.Core", "src\Foodshare.Core\Foodshare.Core.csproj", "{AFEC2907-9472-44FC-929C-4D852A42A47B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodshare.Application", "src\Foodshare.Application\Foodshare.Application.csproj", "{D526D3CE-5D7C-4CE8-A708-ED2106A2690B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foodshare.Infrastructure", "src\Foodshare.Infrastructure\Foodshare.Infrastructure.csproj", "{690269BA-D98F-4E76-8BCB-C2EA13049A1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1CB2873F-A880-4538-B771-E38524B3292C} = {EC65CB24-AF67-4CD9-A2BC-8526A3A1B53F}
+		{AFEC2907-9472-44FC-929C-4D852A42A47B} = {EC65CB24-AF67-4CD9-A2BC-8526A3A1B53F}
+		{D526D3CE-5D7C-4CE8-A708-ED2106A2690B} = {EC65CB24-AF67-4CD9-A2BC-8526A3A1B53F}
+		{690269BA-D98F-4E76-8BCB-C2EA13049A1E} = {EC65CB24-AF67-4CD9-A2BC-8526A3A1B53F}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CB2873F-A880-4538-B771-E38524B3292C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CB2873F-A880-4538-B771-E38524B3292C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CB2873F-A880-4538-B771-E38524B3292C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CB2873F-A880-4538-B771-E38524B3292C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFEC2907-9472-44FC-929C-4D852A42A47B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFEC2907-9472-44FC-929C-4D852A42A47B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFEC2907-9472-44FC-929C-4D852A42A47B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFEC2907-9472-44FC-929C-4D852A42A47B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D526D3CE-5D7C-4CE8-A708-ED2106A2690B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D526D3CE-5D7C-4CE8-A708-ED2106A2690B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D526D3CE-5D7C-4CE8-A708-ED2106A2690B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D526D3CE-5D7C-4CE8-A708-ED2106A2690B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690269BA-D98F-4E76-8BCB-C2EA13049A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690269BA-D98F-4E76-8BCB-C2EA13049A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690269BA-D98F-4E76-8BCB-C2EA13049A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690269BA-D98F-4E76-8BCB-C2EA13049A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
