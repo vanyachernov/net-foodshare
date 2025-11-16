@@ -24,7 +24,8 @@ public static class DependencyInjection
                 .UseSnakeCaseNamingConvention()
                 .AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
         });
-
+        
+        builder.Services.AddSingleton(TimeProvider.System);
         builder.Services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
     }
 }
