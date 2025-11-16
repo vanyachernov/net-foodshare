@@ -1,3 +1,5 @@
+using Foodshare.API.Endpoints;
+using Foodshare.Application;
 using Foodshare.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
     
+    builder.AddApplicationServices();
     builder.AddInfrastructureServices();
 }
 
@@ -17,5 +20,6 @@ var app = builder.Build();
     }
 
     app.UseHttpsRedirection();
+    app.MapDishEndpoints();
     app.Run();
 }
