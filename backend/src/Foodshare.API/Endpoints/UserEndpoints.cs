@@ -1,3 +1,4 @@
+using Foodshare.Application.Common.Users.Login;
 using Foodshare.Application.Common.Users.Register;
 using MediatR;
 
@@ -20,6 +21,15 @@ public static class UserEndpoints
             }
 
             return Results.Created($"/api/users", new { id = result.Data });
+        });
+        
+        group.MapPost("/login", async (LoginUserCommand command, IMediator mediator) =>
+        {
+            var result = await mediator.Send(command);
+
+            return result.Succeeded
+                ? Results.Ok(result)
+                : Results.BadRequest(result);
         });
 
         return app;
