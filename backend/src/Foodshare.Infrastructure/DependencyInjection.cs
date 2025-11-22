@@ -1,6 +1,8 @@
 using Foodshare.Application.Common.Interfaces;
 using Foodshare.Infrastructure.Data;
+using Foodshare.Infrastructure.Identity;
 using Foodshare.Infrastructure.Interceptors;
+using Foodshare.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
@@ -27,5 +29,8 @@ public static class DependencyInjection
         
         builder.Services.AddSingleton(TimeProvider.System);
         builder.Services.AddScoped<IAppDbContext>(provider => provider.GetRequiredService<AppDbContext>());
+        
+        builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("Jwt"));
+        builder.Services.AddSingleton<IAuthService, JwtTokenService>();
     }
 }

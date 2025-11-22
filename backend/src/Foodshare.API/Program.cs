@@ -20,6 +20,8 @@ var app = builder.Build();
     }
 
     app.UseHttpsRedirection();
-    app.MapDishEndpoints();
+    app
+        .MapDishEndpoints()
+        .MapUserEndpoints();
     app.Run();
 }
