@@ -28,7 +28,7 @@ public static class DishEndpoints
             var result = await mediator.Send(new GetDishesQuery());
 
             return result.Succeeded
-                ? Results.Ok(new { Dishes = result.Data })
+                ? Results.Ok(result)
                 : Results.BadRequest(result);
         });
 
