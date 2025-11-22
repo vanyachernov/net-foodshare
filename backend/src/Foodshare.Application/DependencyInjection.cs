@@ -18,5 +18,7 @@ public static class DependencyInjection
             cfg.RegisterServicesFromAssembly(typeof(CreateDishCommand).Assembly);
             cfg.AddOpenBehavior(typeof(ValidationBehaviour<,>));
         });
+        
+        builder.Services.AddAutoMapper(cfg => { }, Assembly.GetExecutingAssembly());
     }
 }

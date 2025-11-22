@@ -39,7 +39,6 @@ public class CreateDishCommandValidator : AbstractValidator<CreateDishCommand>
             .NotEmpty()
             .MustAsync(UserExists)
                 .WithMessage("User with Id '{PropertyValue}' does not exist.");
-
     }
 
     private async Task<bool> BeUniqueTitle(string title, CancellationToken cancellationToken)
