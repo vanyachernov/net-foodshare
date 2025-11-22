@@ -1,4 +1,5 @@
 using Foodshare.Application.Dishes.Commands.CreateDish;
+using Foodshare.Application.Dishes.Queries;
 using MediatR;
 
 namespace Foodshare.API.Endpoints;
@@ -20,6 +21,15 @@ public static class DishEndpoints
             }
 
             return Results.Created($"/api/dishes/{result.Data}", new { id = result.Data });
+        });
+        
+        group.MapGet("/", async (IMediator mediator) =>
+        {
+            var result = await mediator.Send(new GetDishesQuery());
+
+            return result.Succeeded
+                ? Results.Ok(new { Dishes = result.Data })
+                : Results.BadRequest(result);
         });
 
         return app;
