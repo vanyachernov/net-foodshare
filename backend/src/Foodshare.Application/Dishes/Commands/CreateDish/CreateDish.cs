@@ -26,6 +26,13 @@ public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand, Resul
 
     public async Task<Result<Guid?>> Handle(CreateDishCommand request, CancellationToken cancellationToken)
     {
+        var user = await _context.Users.FindAsync([request.OwnerId], cancellationToken);
+
+        if (user == null)
+        {
+            return Result<Guid?>.Failure(["User not found."]);
+        }
+        
         var entity = new Dish
         {
             Title = request.Title,
