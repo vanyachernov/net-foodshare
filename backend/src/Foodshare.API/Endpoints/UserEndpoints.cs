@@ -55,7 +55,6 @@ public static class UserEndpoints
 
         group.MapPut("/{id:guid}", async (Guid id, UpdateUserProfileCommand command, IMediator mediator) =>
         {
-            // Ensure the ID from route matches the command
             var updatedCommand = command with { UserId = id };
             var result = await mediator.Send(updatedCommand);
 

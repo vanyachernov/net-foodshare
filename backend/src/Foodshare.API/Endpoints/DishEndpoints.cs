@@ -67,7 +67,6 @@ public static class DishEndpoints
 
         group.MapPut("/{id:guid}", async (Guid id, UpdateDishCommand command, IMediator mediator) =>
         {
-            // Ensure the ID from route matches the command
             var updatedCommand = command with { Id = id };
             var result = await mediator.Send(updatedCommand);
 

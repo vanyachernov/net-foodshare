@@ -46,7 +46,6 @@ public static class ReservationEndpoints
 
         group.MapPut("/{id:guid}/status", async (Guid id, UpdateReservationStatusCommand command, IMediator mediator) =>
         {
-            // Ensure the ID from route matches the command
             var updatedCommand = command with { ReservationId = id };
             var result = await mediator.Send(updatedCommand);
 
