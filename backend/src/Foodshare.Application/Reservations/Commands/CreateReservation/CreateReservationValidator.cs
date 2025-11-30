@@ -12,15 +12,23 @@ public class CreateReservationValidator : AbstractValidator<CreateReservationCom
     {
         _context = context;
         
-        RuleFor(x => x.UserId)
-            .NotEmpty()
-            .MustAsync(UserExists)
-            .WithMessage("User with Id '{PropertyValue}' does not exist.");
-        
         RuleFor(x => x.DishId)
-            .NotEmpty()
+            .NotEmpty().WithMessage("DishId is required.")
             .MustAsync(DishExists)
             .WithMessage("Dish with Id '{PropertyValue}' does not exist.");
+
+        RuleFor(x => x.UserId)
+            .NotEmpty().WithMessage("UserId is required.")
+            .MustAsync(UserExists)
+            .WithMessage("User with Id '{PropertyValue}' does not exist.");
+
+        RuleFor(x => x.Notes)
+            .MaximumLength(500).WithMessage("Notes cannot exceed 500 characters.")
+            .When(x => !string.IsNullOrEmpty(x.Notes));
+
+        RuleFor(x => x.PickupTime)
+            .GreaterThan(DateTime.UtcNow).WithMessage("Pickup time must be in the future.")
+            .When(x => x.PickupTime.HasValue);
     }
     
     private async Task<bool> DishExists(Guid id, CancellationToken cancellationToken)

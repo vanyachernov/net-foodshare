@@ -1,6 +1,7 @@
 using Foodshare.Application.Common.Interfaces;
 using Foodshare.Application.Common.Models;
 using Foodshare.Core.Entities;
+using Foodshare.Core.Enums;
 using MediatR;
 
 namespace Foodshare.Application.Dishes.Commands.CreateDish;
@@ -10,9 +11,11 @@ public record CreateDishCommand : IRequest<Result<Guid?>>
     public string Title { get; init; } = null!;
     public string Description { get; init; } = null!;
     public decimal Price { get; init; }
-    public string Category { get; init; } = null!;
+    public DishCategory Category { get; init; }
     public string PhotoUrl { get; init; } = null!;
     public Guid OwnerId { get; init; }
+    public bool IsAvailable { get; init; } = true;
+    public int? QuantityAvailable { get; init; }
 }
 
 public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand, Result<Guid?>>
@@ -40,7 +43,9 @@ public class CreateDishCommandHandler : IRequestHandler<CreateDishCommand, Resul
             Price = request.Price,
             Category = request.Category,
             PhotoUrl = request.PhotoUrl,
-            OwnerId = request.OwnerId
+            OwnerId = request.OwnerId,
+            IsAvailable = request.IsAvailable,
+            QuantityAvailable = request.QuantityAvailable
         };
 
         _context.Dishes.Add(entity);
